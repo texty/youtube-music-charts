@@ -14,11 +14,17 @@ d3.csv("data/ua_artists.csv", function(data) {
 
     var uniqueArtists = [];
 
+    data.sort(function(a, b){
+        return b.sum- a.sum;
+    });
+
     data.forEach(function (item) {
         item.week = parseDate(item.week);
         item.Rank = +item.Rank;
         uniqueArtists.indexOf(item["Artist.Name"]) === -1 ? uniqueArtists.push(item["Artist.Name"]) : console.log("This item already exists");
-    });
+        });
+
+
 
 
 
