@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #202020;
+  color: white; }
+
+path.domain {
+  stroke: lightgrey; }
+
+.tick > path {
+  stroke: lightgrey; }
+
+.tick > text {
+  fill: lightgrey; }
+
+#my_dataviz {
+  display: flex;
+  flex-wrap: wrap; }
+  #my_dataviz div {
+    margin: auto; }
+
+.artist-name {
+  text-align: center; }
+
+/*# sourceMappingURL=styles.css.map */
