@@ -4,7 +4,7 @@
 var parseDate = d3.timeParse("%Y-%m-%d");
 
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 800 - margin.left - margin.right,
+    width = 700 - margin.left - margin.right,
     height = 100 - margin.top - margin.bottom;
 
 
