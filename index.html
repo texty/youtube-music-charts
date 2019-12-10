@@ -30,60 +30,112 @@
 <script src="js/pult.js"></script>
 
 <script>
-    const wrapper = document.getElementById('globeViz').getBoundingClientRect();
-    var globeWidth = wrapper.width;
-    const MAP_CENTER = { lat: 46, lng: 32, altitude: 2.5 };
+    var chart_data;
+    function retrieve_chart_data(cb) {
+        if (chart_data) return cb(chart_data);
 
-    const weightColor = d3.scaleSequentialSqrt(d3.interpolateYlOrRd)
-            .domain([0, 1e7]);
+        return d3.csv("data/globeDate.csv", function(err, myData){
+            if (err) throw err;
 
+            myData.forEach(function (item) {
+                item.lat = +item.lat;
+                item.lng = +item.lng;
+                item.views = +item.views ;
+            });
 
-
-
-    const world = Globe( {  })
-    (document.getElementById('globeViz'))
-            .globeImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
-            .bumpImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
-            .hexBinPointWeight('pop')
-            .hexAltitude(function(d){ return  d.sumWeight * 6e-8 })
-            .width(globeWidth)
-            .hexBinResolution(4)
-            .hexTopColor(function(d){ return weightColor(d.sumWeight)})
-            .hexSideColor(function(d){ return weightColor(d.sumWeight)})
-            .hexBinMerge(false)
-            .hexTransitionDuration(500)
-            .enablePointerInteraction(false)
-            .pointOfView(MAP_CENTER);
+            chart_data = myData;
+            if (cb) return cb(myData);
+            return;
+        })
+    }
 
 
-    // Add auto-rotation
-    world.controls().autoRotate = false;
-    //world.controls().autoRotateSpeed = 0.1;
 
-    fetch('data/world_population2.csv').then(res => res.text())
-    .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
-    .then(data => world.hexBinPointsData(data));
+//    fetch('data/world_population2.csv').then(res => res.text())
+//    .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
+//    .then(data => world.hexBinPointsData(data));
 
 
-    setTimeout(function(){
+    retrieve_chart_data(function(myData) {
 
-        document.getElementById("MARUV").addEventListener("mouseover", function() {
-        fetch('data/world_population2.csv').then(res => res.text())
-            .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
-            .then(data => world.hexBinPointsData(data));
+        const wrapper = document.getElementById('globeViz').getBoundingClientRect();
+        var globeWidth = wrapper.width;
+        const MAP_CENTER = { lat: 46, lng: 32, altitude: 2.5 };
+
+        const weightColor = d3.scaleSequentialSqrt(d3.interpolateYlOrRd)
+                .domain([0, 1e7]);
+
+
+
+
+        const world = Globe( {  })
+        (document.getElementById('globeViz'))
+                .globeImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
+                .bumpImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
+                .hexBinPointWeight('views')
+                .hexAltitude(function(d){ return  d.sumWeight * 6e-7 })
+                .width(globeWidth)
+                .hexBinResolution(4)
+                .hexTopColor(function(d){ return weightColor(d.sumWeight)})
+                .hexSideColor(function(d){ return weightColor(d.sumWeight)})
+                .hexBinMerge(false)
+                .hexTransitionDuration(500)
+                .enablePointerInteraction(false)
+                .pointOfView(MAP_CENTER);
+
+
+        // Add auto-rotation
+        world.controls().autoRotate = false;
+        //world.controls().autoRotateSpeed = 0.1;
+
+        var artistData = myData.filter(function(d){
+            return d.artist === "MARUV"
+        });
+
+        world.hexBinPointsData(artistData);
+
+
+        $(".artist-chart").on("click", function () {
+            var artist = $(this).attr("data");
+
+            var artistData = myData.filter(function(d){
+                return d.artist === artist
+            });
+
+            world.hexBinPointsData(artistData)
+
         });
 
 
-        document.getElementById("DZIDZIO").addEventListener("mouseover", function() {
-            fetch('data/world_population.csv').then(res => res.text())
-            .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
-            .then(newdata => world.hexBinPointsData(newdata));
-        });
+
+    });
+
+
+
+//        document.getElementById("MARUV").addEventListener("mouseover", function() {
+//        fetch('data/world_population2.csv').then(res => res.text())
+//            .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
+//            .then(data => world.hexBinPointsData(data));
+//        });
+//
+//
+//        document.getElementById("DZIDZIO").addEventListener("mouseover", function() {
+//            fetch('data/world_population.csv').then(res => res.text())
+//            .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
+//            .then(newdata => world.hexBinPointsData(newdata));
+//        });
+//
+//        document.getElementById("Алина Гросу").addEventListener("mouseover", function() {
+//            fetch('data/grosu.csv').then(res => res.text())
+//            .then(csv => d3.csvParse(csv, ({ lat, lng, views }) => ({ lat: +lat, lng: +lng, pop: +views })))
+//            .then(newdata => world.hexBinPointsData(newdata));
+//        });
 
 
 
 
-    }, 500);
+
+//    }, 500);
 
 
 

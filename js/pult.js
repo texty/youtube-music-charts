@@ -46,7 +46,8 @@ var drawCharts = function(data, artist) {
     
     var container = d3.select("#my_dataviz")
         .append("div")
-        .attr("id", artist)
+        .attr("data",  artist)
+        .attr("class",  "artist-chart")
         ;
 
     container.append("p")
