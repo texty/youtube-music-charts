@@ -15,7 +15,7 @@ d3.csv("data/ua_artists.csv", function(data) {
     var uniqueArtists = [];
 
     data.sort(function(a, b){
-        return b.sum- a.sum;
+        return b.sumViews- a.sumViews;
     });
 
     data.forEach(function (item) {
@@ -48,12 +48,13 @@ var drawCharts = function(data, artist) {
         .append("div")
         .attr("data",  artist)
         .attr("class",  "artist-chart")
+
         ;
 
     container.append("p")
         .attr("class", "artist-name")
         //.attr("id", artist)
-        .text(artist);
+        .html(artist + " - 🇺🇦  <span style='font-size:14px'> " + (itemData[0].sumViews / 1000000).toFixed(1) + " переглядів </span>" );
 
 
     var svg = container

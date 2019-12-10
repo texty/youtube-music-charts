@@ -1,9 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #010411;
-  font-family: 'Nunito', sans-serif;
-  color: white; }
+  background-color: #001;
+  line-height: 1.6;
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #dfdfdf; }
 
 .text {
   width: 50%;
