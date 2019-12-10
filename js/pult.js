@@ -94,6 +94,9 @@ var drawCharts = function(data, artist) {
         .attr("height", 5)
         .style("fill", color);
 
+
+
+
 };
 
 

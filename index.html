@@ -15,9 +15,9 @@
 <script src="//cdn.jsdelivr.net/npm/d3"></script>
 <script src="//cdn.jsdelivr.net/npm/d3-dsv"></script>
 <script src="//cdn.jsdelivr.net/npm/globe.gl"></script>
-<script src="libs/Tween.min.js"></script>
+<!--<script src="libs/Tween.min.js"></script>-->
 <body>
-
+<div id="loading"></div>
 <div id="globeViz" style="width: 40%; position: sticky; top:0; left: 50%;"></div>
 <div id="my_dataviz" style="width: 60%; margin-top: -100vh;"></div>
 
@@ -32,60 +32,60 @@
 <script>
     const wrapper = document.getElementById('globeViz').getBoundingClientRect();
     var globeWidth = wrapper.width;
+    const MAP_CENTER = { lat: 46, lng: 32, altitude: 2.5 };
+
     const weightColor = d3.scaleSequentialSqrt(d3.interpolateYlOrRd)
             .domain([0, 1e7]);
 
+
+
+
     const world = Globe( {  })
-            (document.getElementById('globeViz'))
+    (document.getElementById('globeViz'))
             .globeImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
             .bumpImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
             .hexBinPointWeight('pop')
             .hexAltitude(function(d){ return  d.sumWeight * 6e-8 })
-            .width([globeWidth])
+            .width(globeWidth)
             .hexBinResolution(4)
             .hexTopColor(function(d){ return weightColor(d.sumWeight)})
             .hexSideColor(function(d){ return weightColor(d.sumWeight)})
             .hexBinMerge(false)
-            .enablePointerInteraction(false); // performance improvement
+            .hexTransitionDuration(500)
+            .enablePointerInteraction(false)
+            .pointOfView(MAP_CENTER);
 
 
     // Add auto-rotation
-    world.controls().autoRotate = true;
-    world.controls().autoRotateSpeed = 0.1;
+    world.controls().autoRotate = false;
+    //world.controls().autoRotateSpeed = 0.1;
+
+    fetch('data/world_population2.csv').then(res => res.text())
+    .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
+    .then(data => world.hexBinPointsData(data));
+
 
     setTimeout(function(){
 
-        document.getElementById("MARUV").addEventListener("click", function() {
-            fetch('data/world_population.csv').then(res => res.text())
+        document.getElementById("MARUV").addEventListener("mouseover", function() {
+        fetch('data/world_population2.csv').then(res => res.text())
             .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
             .then(data => world.hexBinPointsData(data));
         });
 
-        document.getElementById("DZIDZIO").addEventListener("click", function() {
 
-            d3.csv("data/world_population2.csv", function(newdata) {
-
-                newdata.forEach(function(d){
-                    d.lat = +d.lat;
-                    d.lon = +d.lon;
-                    d.pop = +d.pop;
-                });
-
-
-                world.hexBinPointsData(newdata);
-
-            })
-
+        document.getElementById("DZIDZIO").addEventListener("mouseover", function() {
+            fetch('data/world_population.csv').then(res => res.text())
+            .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
+            .then(newdata => world.hexBinPointsData(newdata));
         });
 
 
-    }, 100);
 
-//    $("#DZIDZIO").on("click", function() {
-//        fetch('data/world_population2.csv').then(res => res.text())
-//        .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
-//        .then(data => world.hexBinPointsData(data));
-//    });
+
+    }, 500);
+
+
 
 
 </script>
