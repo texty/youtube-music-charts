@@ -45,13 +45,19 @@ var drawCharts = function(data, artist) {
 
     
     var container = d3.select("#my_dataviz")
-        .append("div");
+        .append("div")
+        .attr("id", artist)
+        ;
 
-    container.append("p").attr("class", "artist-name").text(artist);
+    container.append("p")
+        .attr("class", "artist-name")
+        //.attr("id", artist)
+        .text(artist);
 
 
     var svg = container
         .append("svg")
+
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -82,8 +88,8 @@ var drawCharts = function(data, artist) {
         .data(itemData)
         .enter()
         .append("rect")
-        .attr("x", function (d) { return x(d.week); } )
-        .attr("y", function (d) { return y(d.Rank); } )
+        .attr("x", function (d) { return x(d.week) - 4; } )
+        .attr("y", function (d) { return y(d.Rank) - 5; } )
         .attr("width", 10)
         .attr("height", 5)
         .style("fill", color);

@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #202020;
+  background-color: #010411;
+  font-family: 'Nunito', sans-serif;
   color: white; }
 
 path.domain {
@@ -14,12 +15,25 @@ path.domain {
   fill: lightgrey; }
 
 #my_dataviz {
-  display: flex;
-  flex-wrap: wrap; }
+  display: inline-block;
+  width: 50%; }
   #my_dataviz div {
-    margin: auto; }
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    pointer-events: all; }
 
 .artist-name {
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
+
+#globeViz {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0; }
+
+canvas {
+  width: 500px; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,7 +1,9 @@
 body {
   margin:0;
   padding:0;
-  background-color: #202020;
+  background-color:#010411;
+  font-family: 'Nunito', sans-serif;
+
   color: white;
 }
 
@@ -21,17 +23,36 @@ path.domain {
 }
 
 #my_dataviz {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-block;
+  width: 50%;
+  //pointer-events: none;
+  //display: flex;
+  //flex-wrap: wrap;
 
   div {
-    margin: auto;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    pointer-events: all;
+    //margin: auto;
   }
 }
 
 .artist-name {
   text-align: center;
+  cursor: pointer;
 }
 
+#globeViz {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left:0;
+  //z-index: -1;
+}
+
+canvas {
+  width: 500px;
+}
 
 
