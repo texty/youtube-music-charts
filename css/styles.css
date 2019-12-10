@@ -5,6 +5,10 @@ body {
   font-family: 'Nunito', sans-serif;
   color: white; }
 
+.text {
+  width: 50%;
+  margin: auto; }
+
 path.domain {
   stroke: lightgrey; }
 
