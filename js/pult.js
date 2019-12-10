@@ -54,7 +54,7 @@ var drawCharts = function(data, artist) {
     container.append("p")
         .attr("class", "artist-name")
         //.attr("id", artist)
-        .html(artist + " - 🇺🇦  <span style='font-size:14px'> " + (itemData[0].sumViews / 1000000).toFixed(1) + " переглядів </span>" );
+        .html(artist + " - 🇺🇦  <span style='font-size:14px'> " + (itemData[0].sumViews / 1000000).toFixed(1) + "M переглядів </span>" );
 
 
     var svg = container
