@@ -55,11 +55,11 @@ retrieve_chart_data(function(myData) {
         var artist = $(this).attr("data");
         var color = $(this).attr("color");
 
-        if(artist === "Asti" || artist === "Artik" || artist === "Andro"|| artist === "Dilemma" ||  artist === "Govor"){
-            $("#no-data").css("display", "block").css("color", color)
-        } else {
-            $("#no-data").css("display", "none")
-        }
+        // if(artist === "Asti" || artist === "Artik" || artist === "Andro"|| artist === "Dilemma" ||  artist === "Govor"){
+        //     $("#no-data").css("display", "block").css("color", color)
+        // } else {
+        //     $("#no-data").css("display", "none")
+        // }
 
        $(".artist-name").css("background-color", "transparent");
         
