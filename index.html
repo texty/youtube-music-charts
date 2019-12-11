@@ -3,7 +3,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>YOUTUBE</title>
+<title>Youtube чарти</title>
+
+
+<!-- OpenGraph Meta Tags -->
+<meta property="og:site_name"
+      content="Youtube чарти"/>
+<meta property="og:type" content="http://texty.org.ua/d/2019/charts/"/>
+<meta property="og:title"
+      content="Youtube чарти"/>
+<meta property="og:image" content="http://texty.org.ua/d/2019/charts/img/cover.jpg"/>
+<meta property="og:description"
+      content="Ми дослідили, хто з наших музикантів зміг прорватись у вітчизняні youtube чарти скрізь товсту стіну росмузону, та де по світу слухали українську музику."/>
+<meta property="og:url" content="http://texty.org.ua/d/2019/charts/"/>
+
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:site" content="@textyorgua"/>
+<meta property="twitter:account_id" content="49572937"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="http://texty.org.ua/d/2019/charts/">
+<meta name="twitter:title"
+      content="Youtube чарти"/>
+<meta name="twitter:description"
+      content="Ми дослідили, хто з наших музикантів зміг прорватись у вітчизняні youtube чарти скрізь товсту стіну росмузону, та де по світу слухали українську музику."/>
+<meta name="twitter:image:src" content="http://texty.org.ua/d/2019/charts/img/map.png"/>
+<meta name="twitter:image:width" content="1200"/>
+<meta name="twitter:image:height" content="630"/>
+
+
+<!-- Other Meta Tags -->
+<meta name="title"
+      content="Youtube чарти">
+<meta name="description"
+      content="Ми дослідили, хто з наших музикантів зміг прорватись у вітчизняні youtube чарти скрізь товсту стіну росмузону, та де по світу слухали українську музику.">
 
 
 <!-- Links -->
@@ -11,9 +44,6 @@
 <link rel='stylesheet' href="css/styles.css">
 
 
-<!-- Scripts -->
-<!--<script src="//cdn.jsdelivr.net/npm/d3"></script>-->
-<!--<script src="//cdn.jsdelivr.net/npm/d3-dsv"></script>-->
 
 <body>
 <article>
@@ -41,114 +71,33 @@
 <p id="no-data">¯\_(ツ)_/¯</p>
 <div id="globeViz"></div>
 <div id="my_dataviz"></div>
-
-
-
 </article>
+
+
+
 <script type="text/javascript" src="libs/d3.v4.js"></script>
 <script src="libs/globe.gl.min.js"></script>
 <script src="libs/d3fc.min.js"></script>
 <script type="text/javascript" src="libs/jquery-3.3.1.min.js"></script>
+<script src="js/myglobe.js"></script>
 <script src="js/pult.js"></script>
 
-<script>
-    var chart_data;
-    function retrieve_chart_data(cb) {
-        if (chart_data) return cb(chart_data);
-
-        return d3.csv("data/globeDate.csv", function(err, myData){
-            if (err) throw err;
-
-            myData.forEach(function (item) {
-                item.lat = +item.lat;
-                item.lng = +item.lng;
-                item.views = +item.views ;
-            });
-
-            chart_data = myData;
-            if (cb) return cb(myData);
-            return;
-        })
-    }
 
 
 
-//    fetch('data/world_population2.csv').then(res => res.text())
-//    .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
-//    .then(data => world.hexBinPointsData(data));
-
-
-    retrieve_chart_data(function(myData) {
-
-        const wrapper = document.getElementById('globeViz').getBoundingClientRect();
-        const globeWidth = wrapper.width;
-
-        const MAP_CENTER = { lat: 46, lng: 32, altitude: 3.0 };
-
-
-//        const weightColor = d3.scaleSequentialSqrt(d3.interpolateYlOrRd)
-//                .domain([0, 1e7]);
-
-
-
-
-        const world = Globe( {  })
-        (document.getElementById('globeViz'))
-                .globeImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
-                .bumpImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
-                .hexBinPointWeight('views')
-                .hexAltitude(function(d){ return  d.sumWeight * 6e-7 })
-                .width(globeWidth)
-                .height(wrapper.height)
-                .hexBinResolution(4)
-                //.hexTopColor(function(d){ return weightColor(d.sumWeight)})
-                //.hexSideColor(function(d){ return weightColor(d.sumWeight)})
-
-                .hexBinMerge(false)
-                .hexTransitionDuration(500)
-                .enablePointerInteraction(false)
-                .pointOfView(MAP_CENTER);
-
-
-
-        // Add auto-rotation
-        world.controls().autoRotate = false;
-        $("#my_dataviz").css("margin-top", "-100vh");
-        //world.controls().autoRotateSpeed = 0.1;
-
-
-        $(".artist-chart").on("click", function () {
-            var artist = $(this).attr("data");
-            var color = $(this).attr("color");
-
-            if(artist === "Asti" || artist === "Artik" || artist === "Andro"|| artist === "Dilemma" ||  artist === "Govor"){
-                $("#no-data").css("display", "block").css("color", color)
-            } else {
-                $("#no-data").css("display", "none")
-            }
-
-
-            var colorToRGBA = color.replace(')', ', 0.5)').replace('rgb', 'rgba');
-            $(".artist-name").css("background-color", "transparent");
-            //$(this).find(".artist-name").css("background-color", colorToRGBA);
-
-
-
-            var artistData = myData.filter(function(d){
-                return d.artist === artist
-            });
-
-            world
-                    .hexTopColor(function(d){ return color })
-                    .hexSideColor(function(d){ return color })
-                    .hexBinPointsData(artistData)
-
-        });
-
-
-
-    });
-
-
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18136548-1']);
+    _gaq.push(['_trackPageview']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 </script>
+
+
 </body>
