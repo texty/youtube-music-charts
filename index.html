@@ -7,7 +7,7 @@
 
 
 <!-- Links -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i|PT+Mono&display=swap" rel="stylesheet">
 <link rel='stylesheet' href="css/styles.css">
 
 
@@ -24,21 +24,17 @@
 
     <h5 id="credits"><s>Скрейпіла кончений youtube</s> Над проектом  працювала: Євгенія Дроздова</h5>
 
-
-
-    <p>Звісно, youtube чарти -  не те місце, де варто шукати хорошої музики, тим не менш ми вирішили подивитись, що там відбувається і виявили дещо цікаве.</p>
-
-    <p>Наприклад, у 2019 році український гурт КАЗКА отримав на youtube понад 347 млн переглядів. Це, звісно, не Billie Eilish, проте найвищий показник серед українських виконавців. На випадок, якщо вам буває сумно від засилля російської попси та репу в українських чартах, зазначимо, що 98 млн переглядів КАЗКА мала з Росії і 83.5 з Україні. Непогано, як для гурту, що співає, здебільшого, українською.</p>
-
-    <p> Мало того, россійський реп-дует HammAli & Navai  записали українською аж пів пісні. На цілу хлопці не наважились, тому поки що виглядає скоріше як натяк, що українська і російська мови можуть чудово уживатись разом. Але ми щиро бажаємо хлопцям повноцінного україномовного альбому, бо росіяни нам здорово винні за російські пісні Лорак, Лободи, Барських, Дорна та інших. </p>
-
-    <p>Але, повернемось до України. Якщо ви пограєтесь з глобусом, то побачите, що рок-гурт The Hardkiss шалено популярний в Індії та Індонезії, так само як Kavabanga Depo Kolibri. А от, наприклад, мексиканцям заходить наша Настя Каменських (NK). Майже 25% всіх фанатів Вінника живуть у Києві, а ще Monatik популярніший за Maruv. </p>
-
     <p>Ми дослідили, хто з наших музикантів зміг прорватись у вітчизняні youtube чарти скрізь товсту стіну росмузону, та де по світу слухали українську музику.</p>
 
+    <p>Якщо ви пограєтесь з глобусом, то побачите, що рок-гурт The Hardkiss популярний в Індії та Індонезії, так само як Kavabanga Depo Kolibri, а мексиканцям заходить наша Настя Каменських (NK). Майже 25% всіх фанатів Вінника живуть у Києві, а найпопулярнішим українським гуртом 2019 року є КАZКА. </p>
+    <p>За рік КАZКА отримала 347 млн переглядів. Це, звісно, не Billie Eilish, проте найвищий показник серед українських виконавців. На випадок, якщо вам буває сумно від засилля російської попси та репу в українських чартах, зазначимо, що 98 млн переглядів КАЗКА мала з Росії і 83.5 з Україні. Непогано, як для гурту, що співає, здебільшого, українською.</p>
+    <!--<p>Звісно, youtube чарти -  не те місце, де варто шукати хорошої музики, тим не менш ми вирішили подивитись, що там відбувається і виявили дещо цікаве.</p>-->
 
-    <p>На графіках ліворуч частота і позиції виконавця в щотижневих українських youtube чартах "Найкращі виконавці". Виконавці відсотртовані за кількістю просмотрів в українському сегменті youtube. На глобусі - кількість переглядів по окремих містах світу. По кожному виконавцю youtube надає інформацію щодо ТОП-100 міст за кількістю перегдядів. </p>
-    <p><b>Графіки клікабельні. Глобус можна крутити.</b></p>
+        <!--<p> Мало того, россійський реп-дует HammAli & Navai  записали українською аж пів пісні. На цілу хлопці не наважились, тому поки що виглядає скоріше як натяк, що українська і російська мови можуть чудово уживатись разом. Але ми щиро бажаємо хлопцям повноцінного україномовного альбому, бо росіяни нам здорово винні за російські пісні Лорак, Лободи, Барських, Дорна та інших. </p>-->
+
+
+   <p>На графіках ліворуч частота і позиції виконавця в щотижневих українських youtube чартах "Найкращі виконавці". Виконавці відсотртовані за кількістю просмотрів в українському сегменті youtube. На глобусі - кількість переглядів по окремих містах світу. По кожному виконавцю youtube надає інформацію щодо ТОП-100 міст за кількістю перегдядів. </p>
+    <p style="color: #00ffff">Графіки клікабельні. Глобус можна крутити.</p>
 </div>
 
 
@@ -89,6 +85,7 @@
 
         const MAP_CENTER = { lat: 46, lng: 32, altitude: 3.0 };
 
+
         const weightColor = d3.scaleSequentialSqrt(d3.interpolateYlOrRd)
                 .domain([0, 1e7]);
 
@@ -104,12 +101,14 @@
                 .width(globeWidth)
                 .height(wrapper.height)
                 .hexBinResolution(4)
-                .hexTopColor(function(d){ return weightColor(d.sumWeight)})
-                .hexSideColor(function(d){ return weightColor(d.sumWeight)})
+                //.hexTopColor(function(d){ return weightColor(d.sumWeight)})
+                //.hexSideColor(function(d){ return weightColor(d.sumWeight)})
+
                 .hexBinMerge(false)
                 .hexTransitionDuration(500)
                 .enablePointerInteraction(false)
                 .pointOfView(MAP_CENTER);
+
 
 
         // Add auto-rotation
@@ -120,15 +119,18 @@
 
         $(".artist-chart").on("click", function () {
             var artist = $(this).attr("data");
+            var color = $(this).attr("color");
+
             if(artist === "Asti" || artist === "Artik" || artist === "Andro"|| artist === "Dilemma" ||  artist === "Govor"){
-                $("#no-data").css("display", "block")
+                $("#no-data").css("display", "block").css("color", color)
             } else {
                 $("#no-data").css("display", "none")
             }
-            var color = $(this).attr("color").replace(')', ', 0.5)').replace('rgb', 'rgba');
-            console.log(color);
+
+
+            var colorToRGBA = color.replace(')', ', 0.5)').replace('rgb', 'rgba');
             $(".artist-name").css("background-color", "transparent");
-            $(this).find(".artist-name").css("background-color", color);
+            //$(this).find(".artist-name").css("background-color", colorToRGBA);
 
 
 
@@ -136,7 +138,10 @@
                 return d.artist === artist
             });
 
-            world.hexBinPointsData(artistData)
+            world
+                    .hexTopColor(function(d){ return color })
+                    .hexSideColor(function(d){ return color })
+                    .hexBinPointsData(artistData)
 
         });
 

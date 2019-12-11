@@ -5,7 +5,7 @@ body {
   line-height: 1.6;
   font-size: 18px;
   font-family: 'Open Sans', sans-serif;
-  color: #dfdfdf; }
+  color: #bababa; }
 
 article {
   max-width: 1600px;
@@ -44,17 +44,21 @@ path.domain {
       left: 5%;
       margin-top: 0 !important; } }
   #my_dataviz div {
+    margin-top: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
     pointer-events: all; }
   #my_dataviz .artist-chart {
     cursor: pointer; }
-  #my_dataviz .artist-chart:focus {
-    background-color: yellow; }
+  #my_dataviz svg > text {
+    font-family: 'PT Mono', monospace; }
 
 .artist-name {
-  text-align: center;
+  font-family: 'PT Mono', monospace;
+  font-size: 15px;
+  text-align: left;
+  margin-left: 60px;
   cursor: pointer; }
 
 #globeViz {

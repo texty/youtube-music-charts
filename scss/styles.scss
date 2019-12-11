@@ -6,7 +6,7 @@ body {
   line-height: 1.6;
   font-size: 18px;
   font-family: 'Open Sans', sans-serif;
-  color: #dfdfdf;
+  color: #bababa;
 }
 
 article {
@@ -57,6 +57,7 @@ path.domain {
 
 
   div {
+    margin-top: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -67,13 +68,16 @@ path.domain {
     cursor: pointer;
   }
 
-  .artist-chart:focus {
-    background-color: yellow;
-  }
+ svg > text {
+   font-family: 'PT Mono', monospace;
+ }
 }
 
 .artist-name {
-  text-align: center;
+  font-family: 'PT Mono', monospace;
+  font-size: 15px;
+  text-align: left;
+  margin-left: 60px;
   cursor: pointer;
 }
 
