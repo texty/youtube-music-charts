@@ -2,10 +2,12 @@
  * Created by yevheniia on 09.12.19.
  */
 var parseDate = d3.timeParse("%Y-%m-%d");
+var container = $("#my_dataviz")[0].getBoundingClientRect();
 
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 700 - margin.left - margin.right,
+    width = container.width - margin.left - margin.right,
     height = 100 - margin.top - margin.bottom;
+
 
 
 

@@ -22,7 +22,11 @@ path.domain {
 
 #my_dataviz {
   display: inline-block;
-  width: 50%; }
+  width: 40%; }
+  @media (max-width: 800px) and (orientation: portrait) {
+    #my_dataviz {
+      width: 90%;
+      left: 5%; } }
   #my_dataviz div {
     width: 800px;
     display: flex;
@@ -34,10 +38,16 @@ path.domain {
   cursor: pointer; }
 
 #globeViz {
-  width: 100%;
+  width: 60%;
   position: sticky;
   top: 0;
-  left: 0; }
+  left: 40%; }
+  @media (max-width: 800px) and (orientation: portrait) {
+    #globeViz {
+      width: 90%;
+      position: sticky;
+      top: 0;
+      left: 5%; } }
 
 canvas {
   width: 500px; }
