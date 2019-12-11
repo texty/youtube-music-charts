@@ -101,10 +101,14 @@ canvas {
   color: #ffe525;
   //font-size: 25px;
   position: fixed;
-  top: 45%;
-  right: 28%;
+  top: 45vh;
+  right: 30%;
   z-index: 1000;
   display: none;
+  @media(max-width: 800px) and (orientation: portrait){
+    top: 20vh;
+    right: 40%;
+  }
 }
 
 

@@ -97,8 +97,8 @@ var drawCharts = function(data, artist) {
         .append("rect")
         .attr("x", function (d) { return x(d.week) - 4; } )
         .attr("y", function (d) { return y(d.Rank) - 5; } )
-        .attr("width", 10)
-        .attr("height", 5)
+        .attr("width", width / 50)
+        .attr("height", (width / 50) /2)
         .style("fill", color);
 
 
