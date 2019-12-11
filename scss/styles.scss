@@ -98,9 +98,11 @@ canvas {
 }
 
 #no-data {
+  color: #ffe525;
+  //font-size: 25px;
   position: fixed;
   top: 45%;
-  right: 30%;
+  right: 28%;
   z-index: 1000;
   display: none;
 }
