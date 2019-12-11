@@ -74,4 +74,11 @@ path.domain {
 canvas {
   width: 100%; }
 
+#no-data {
+  position: fixed;
+  top: 45%;
+  right: 30%;
+  z-index: 1000;
+  display: none; }
+
 /*# sourceMappingURL=styles.css.map */

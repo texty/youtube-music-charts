@@ -42,6 +42,8 @@
 </div>
 
 
+
+<p id="no-data">немає даних</p>
 <div id="globeViz"></div>
 <div id="my_dataviz"></div>
 
@@ -118,6 +120,11 @@
 
         $(".artist-chart").on("click", function () {
             var artist = $(this).attr("data");
+            if(artist === "Asti" || artist === "Artik" || artist === "Andro"|| artist === "Dilemma" ||  artist === "Govor"){
+                $("#no-data").css("display", "block")
+            } else {
+                $("#no-data").css("display", "none")
+            }
             var color = $(this).attr("color").replace(')', ', 0.5)').replace('rgb', 'rgba');
             console.log(color);
             $(".artist-name").css("background-color", "transparent");
