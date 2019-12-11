@@ -4,12 +4,16 @@ body {
   background-color: #001;
   line-height: 1.6;
   font-size: 18px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #dfdfdf; }
 
 .text {
   width: 50%;
   margin: auto; }
+  @media (max-width: 800px) and (orientation: portrait) {
+    .text {
+      width: 90%;
+      left: 5%; } }
 
 path.domain {
   stroke: lightgrey; }
@@ -26,9 +30,10 @@ path.domain {
   @media (max-width: 800px) and (orientation: portrait) {
     #my_dataviz {
       width: 90%;
-      left: 5%; } }
+      left: 5%;
+      margin-top: 0 !important; } }
   #my_dataviz div {
-    width: 800px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     pointer-events: all; }
@@ -39,17 +44,19 @@ path.domain {
 
 #globeViz {
   width: 60%;
+  height: 100vh;
   position: sticky;
   top: 0;
   left: 40%; }
   @media (max-width: 800px) and (orientation: portrait) {
     #globeViz {
-      width: 90%;
+      width: 100%;
+      height: 50vh;
       position: sticky;
       top: 0;
       left: 5%; } }
 
 canvas {
-  width: 500px; }
+  width: 100%; }
 
 /*# sourceMappingURL=styles.css.map */

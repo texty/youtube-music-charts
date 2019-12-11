@@ -26,7 +26,8 @@
 
 
     <p>Наприклад, у 2019 році український гурт КАЗКА отримав на youtube понад 347 млн переглядів. Це, звісно, менше ніж в Billie Eilish, проте найвищий показник серед українських виконавців. На випадок, якщо вам буває сумно від засилля російської попси та репу в українських чартах, зазначимо, що  98 млн переглядів КАЗКА мала з Росії і 83.5 з Україні. Непогано, як для гурту, що співає, здебільшого, українською.</p>
-    <p>А от россійський гурт HammAli & Navai записав пісню, де частина тексту українською: https://www.youtube.com/watch?v=GOn8WJ1PPEE. Я закохався в твої очі назавжди, співають хлопці, потім частина тескту російською, частина українською. В них непогано виходить, хай продовжують записувати пісні українською.</p>
+
+    <!--<p>А от россійський гурт HammAli & Navai записав пісню, де частина тексту українською: https://www.youtube.com/watch?v=GOn8WJ1PPEE. Я закохався в твої очі назавжди, співають хлопці, потім частина тескту російською, частина українською. В них непогано виходить, хай продовжують записувати пісні українською.</p>-->
 
     <p>А от наприклад, рок-гурт The Hardkiss популярний в Індії та Індонезії,  в той час як мексиканцям заходить наша Настя Каменських (NK)</p>
 
@@ -46,11 +47,7 @@
 
 
 </div>
-<div id="loading"></div>
-<div id="globeViz">
-
-
-</div>
+<div id="globeViz"></div>
 <div id="my_dataviz"></div>
 
 
@@ -91,7 +88,8 @@
     retrieve_chart_data(function(myData) {
 
         const wrapper = document.getElementById('globeViz').getBoundingClientRect();
-        var globeWidth = wrapper.width;
+        const globeWidth = wrapper.width;
+
         const MAP_CENTER = { lat: 46, lng: 32, altitude: 2.5 };
 
         const weightColor = d3.scaleSequentialSqrt(d3.interpolateYlOrRd)
@@ -107,6 +105,7 @@
                 .hexBinPointWeight('views')
                 .hexAltitude(function(d){ return  d.sumWeight * 6e-7 })
                 .width(globeWidth)
+                .height(wrapper.height)
                 .hexBinResolution(4)
                 .hexTopColor(function(d){ return weightColor(d.sumWeight)})
                 .hexSideColor(function(d){ return weightColor(d.sumWeight)})
