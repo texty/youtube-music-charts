@@ -7,7 +7,7 @@
 
 
 <!-- Links -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400,400i,500,500i,700|Ubuntu:400,400i,500,500i,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <link rel='stylesheet' href="css/styles.css">
 
 
@@ -17,42 +17,36 @@
 <script src="//cdn.jsdelivr.net/npm/globe.gl"></script>
 <!--<script src="libs/Tween.min.js"></script>-->
 <body>
+<article>
 
 <div class="text">
     <h1>Українські youtube-чарти</h1>
 
-
-    <p>Звісно, youtube чарти -  не те місце, де варто шукати хорошої музики, тим не менш ми вирішили подивитись на цьогорічні чарти і виявили дещо цікаве.</p>
-
-
-    <p>Наприклад, у 2019 році український гурт КАЗКА отримав на youtube понад 347 млн переглядів. Це, звісно, менше ніж в Billie Eilish, проте найвищий показник серед українських виконавців. На випадок, якщо вам буває сумно від засилля російської попси та репу в українських чартах, зазначимо, що  98 млн переглядів КАЗКА мала з Росії і 83.5 з Україні. Непогано, як для гурту, що співає, здебільшого, українською.</p>
-
-    <!--<p>А от россійський гурт HammAli & Navai записав пісню, де частина тексту українською: https://www.youtube.com/watch?v=GOn8WJ1PPEE. Я закохався в твої очі назавжди, співають хлопці, потім частина тескту російською, частина українською. В них непогано виходить, хай продовжують записувати пісні українською.</p>-->
-
-    <p>А от наприклад, рок-гурт The Hardkiss популярний в Індії та Індонезії,  в той час як мексиканцям заходить наша Настя Каменських (NK)</p>
+    <h5 id="credits"><s>Скрейпіла кончений youtube</s> Над проектом  працювала: Євгенія Дроздова</h5>
 
 
 
-    <p>Ми дослідили, хто з наших музикантів зміг прорватись у вітчизняні youtube чарти скрізь товсту стіну росмузону, та де по світу слухали українську музику.
-    </p>
+    <p>Звісно, youtube чарти -  не те місце, де варто шукати хорошої музики, тим не менш ми вирішили подивитись, що там відбувається і виявили дещо цікаве.</p>
 
-    <p>Зазначимо, MARUV є лідеркою за кількістю тижнів у чартах, а от за кількістю переглядів попереду Artik&Asti.</p>
-    <p style="font-size:15px; font-weight: 400; text-align: right; margin: 50px 0 80px 0;" ><s>Скрейпіла кончений youtube</s> Над проектом  працювала: Євгенія Дроздова</p>
+    <p>Наприклад, у 2019 році український гурт КАЗКА отримав на youtube понад 347 млн переглядів. Це, звісно, не Billie Eilish, проте найвищий показник серед українських виконавців. На випадок, якщо вам буває сумно від засилля російської попси та репу в українських чартах, зазначимо, що 98 млн переглядів КАЗКА мала з Росії і 83.5 з Україні. Непогано, як для гурту, що співає, здебільшого, українською.</p>
+
+    <p> Мало того, россійський реп-дует HammAli & Navai  записали українською аж пів пісні. На цілу хлопці не наважились, тому поки що виглядає скоріше як натяк, що українська і російська мови можуть чудово уживатись разом. Але ми щиро бажаємо хлопцям повноцінного україномовного альбому, бо росіяни нам здорово винні за російські пісні Лорак, Лободи, Барських, Дорна та інших. </p>
+
+    <p>Але, повернемось до України. Якщо ви пограєтесь з глобусом, то побачите, що рок-гурт The Hardkiss шалено популярний в Індії та Індонезії, так само як Kavabanga Depo Kolibri. А от, наприклад, мексиканцям заходить наша Настя Каменських (NK). Майже 25% всіх фанатів Вінника живуть у Києві, а ще Monatik популярніший за Maruv. </p>
+
+    <p>Ми дослідили, хто з наших музикантів зміг прорватись у вітчизняні youtube чарти скрізь товсту стіну росмузону, та де по світу слухали українську музику.</p>
+
 
     <p>На графіках ліворуч частота і позиції виконавця в щотижневих українських youtube чартах "Найкращі виконавці". Виконавці відсотртовані за кількістю просмотрів в українському сегменті youtube. На глобусі - кількість переглядів по окремих містах світу. По кожному виконавцю youtube надає інформацію щодо ТОП-100 міст за кількістю перегдядів. Графіки клікабельні. Глобус можна крутити.</p>
-
-
-
-
-
-
 </div>
+
+
 <div id="globeViz"></div>
 <div id="my_dataviz"></div>
 
 
 
-
+</article>
 <script type="text/javascript" src="libs/d3.v4.js"></script>
 <script src="https://unpkg.com/d3fc/build/d3fc.min.js"></script>
 <script type="text/javascript" src="libs/jquery-3.3.1.min.js"></script>
@@ -90,7 +84,7 @@
         const wrapper = document.getElementById('globeViz').getBoundingClientRect();
         const globeWidth = wrapper.width;
 
-        const MAP_CENTER = { lat: 46, lng: 32, altitude: 2.5 };
+        const MAP_CENTER = { lat: 46, lng: 32, altitude: 3.0 };
 
         const weightColor = d3.scaleSequentialSqrt(d3.interpolateYlOrRd)
                 .domain([0, 1e7]);
@@ -120,15 +114,14 @@
         $("#my_dataviz").css("margin-top", "-100vh");
         //world.controls().autoRotateSpeed = 0.1;
 
-//        var artistData = myData.filter(function(d){
-//            return d.artist === "MARUV"
-//        });
-//
-//        world.hexBinPointsData(artistData);
-
 
         $(".artist-chart").on("click", function () {
             var artist = $(this).attr("data");
+            var color = $(this).attr("color").replace(')', ', 0.5)').replace('rgb', 'rgba');
+            console.log(color);
+            $(".artist-name").css("background-color", "transparent");
+            $(this).find(".artist-name").css("background-color", color);
+
 
 
             var artistData = myData.filter(function(d){
@@ -142,35 +135,6 @@
 
 
     });
-
-
-
-//        document.getElementById("MARUV").addEventListener("mouseover", function() {
-//        fetch('data/world_population2.csv').then(res => res.text())
-//            .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
-//            .then(data => world.hexBinPointsData(data));
-//        });
-//
-//
-//        document.getElementById("DZIDZIO").addEventListener("mouseover", function() {
-//            fetch('data/world_population.csv').then(res => res.text())
-//            .then(csv => d3.csvParse(csv, ({ lat, lng, pop }) => ({ lat: +lat, lng: +lng, pop: +pop })))
-//            .then(newdata => world.hexBinPointsData(newdata));
-//        });
-//
-//        document.getElementById("Алина Гросу").addEventListener("mouseover", function() {
-//            fetch('data/grosu.csv').then(res => res.text())
-//            .then(csv => d3.csvParse(csv, ({ lat, lng, views }) => ({ lat: +lat, lng: +lng, pop: +views })))
-//            .then(newdata => world.hexBinPointsData(newdata));
-//        });
-
-
-
-
-
-//    }, 500);
-
-
 
 
 </script>

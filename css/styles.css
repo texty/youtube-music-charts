@@ -7,9 +7,20 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #dfdfdf; }
 
+article {
+  max-width: 1600px;
+  margin: auto; }
+
+#credits {
+  font-size: 15px;
+  font-weight: 400;
+  text-align: right;
+  margin: 50px 0 80px 0; }
+
 .text {
   width: 50%;
-  margin: auto; }
+  margin: auto;
+  margin-bottom: 50px; }
   @media (max-width: 800px) and (orientation: portrait) {
     .text {
       width: 90%;
@@ -37,6 +48,10 @@ path.domain {
     display: flex;
     flex-direction: column;
     pointer-events: all; }
+  #my_dataviz .artist-chart {
+    cursor: pointer; }
+  #my_dataviz .artist-chart:focus {
+    background-color: yellow; }
 
 .artist-name {
   text-align: center;

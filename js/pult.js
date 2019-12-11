@@ -49,13 +49,16 @@ var drawCharts = function(data, artist) {
     var container = d3.select("#my_dataviz")
         .append("div")
         .attr("data",  artist)
+        .attr("color",  color)
         .attr("class",  "artist-chart")
 
         ;
 
     container.append("p")
+        .style("display", "flex")
+        .append("span")
         .attr("class", "artist-name")
-        //.attr("id", artist)
+        .style("margin", "auto")
         .html(artist + " - 🇺🇦  <span style='font-size:14px'> " + (itemData[0].sumViews / 1000000).toFixed(1) + "M переглядів </span>" );
 
 
