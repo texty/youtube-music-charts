@@ -9,8 +9,16 @@ body {
   color: #bababa;
 }
 
+header {
+  display: flex;
+  height: 25vh;
+  background-image: url(../img/cover.png);
+  background-size: cover;
+}
+
 h1 {
   font-size: 40px;
+  margin: auto;
 }
 
 article {
