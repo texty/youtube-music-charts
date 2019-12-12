@@ -22,6 +22,7 @@ function retrieve_chart_data(cb) {
 
 
 retrieve_chart_data(function(myData) {
+    setTimeout(function(){
     const wrapper = document.getElementById('globeViz').getBoundingClientRect();
     const globeWidth = wrapper.width;
     const MAP_CENTER = { lat: 46, lng: 32, altitude: 3.0 };
@@ -72,5 +73,7 @@ retrieve_chart_data(function(myData) {
             .hexSideColor(function(d){ return color })
             .hexBinPointsData(artistData)
     });
+
+    }, 500)
 
 });
