@@ -11,7 +11,7 @@ function retrieve_chart_data(cb) {
         myData.forEach(function (item) {
             item.lat = +item.lat;
             item.lng = +item.lng;
-            item.views = +item.views ;
+            item.views = +item.views / 10 ;
         });
 
         chart_data = myData;
