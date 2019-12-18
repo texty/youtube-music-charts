@@ -283,6 +283,9 @@ header {
   height: 25vh;
   background-image: url(../img/cover.png);
   background-size: cover; }
+  @media (max-width: 800px) and (orientation: landscape) {
+    header {
+      height: 50vh; } }
 
 h1 {
   font-size: 40px;
@@ -369,5 +372,17 @@ canvas {
     #no-data {
       top: 20vh;
       right: 40%; } }
+
+.desktop {
+  display: block; }
+  @media (max-width: 800px) and (orientation: portrait) {
+    .desktop {
+      display: none; } }
+
+.mobile {
+  display: none; }
+  @media (max-width: 800px) and (orientation: portrait) {
+    .mobile {
+      display: block; } }
 
 /*# sourceMappingURL=styles.css.map */

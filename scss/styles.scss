@@ -18,6 +18,10 @@ header {
   height: 25vh;
   background-image: url(../img/cover.png);
   background-size: cover;
+  @media(max-width: 800px) and (orientation: landscape){
+    height: 50vh;
+  }
+
 }
 
 h1 {
@@ -128,6 +132,20 @@ canvas {
   @media(max-width: 800px) and (orientation: portrait){
     top: 20vh;
     right: 40%;
+  }
+}
+
+.desktop {
+  display: block;
+  @media(max-width: 800px) and (orientation: portrait) {
+    display: none;
+  }
+}
+
+.mobile {
+  display: none;
+  @media(max-width: 800px) and (orientation: portrait) {
+    display: block;
   }
 }
 
