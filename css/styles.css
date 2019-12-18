@@ -101,7 +101,7 @@
         font-size: 20px; } }
   #soc i {
     font-size: 35px;
-    color: #00ffff;
+    color: #4abbfd;
     margin: 0 0 0 0.5em;
     max-height: 1em;
     transition: all 0.5s; }
@@ -156,8 +156,8 @@
     cursor: pointer;
     width: 1em;
     height: 1em;
-    border: 1px solid #00ffff;
-    color: #00ffff;
+    border: 1px solid #4abbfd;
+    color: #4abbfd;
     border-radius: 50%;
     padding: 0.5em;
     font-size: 1.5em;
