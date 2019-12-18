@@ -40,69 +40,91 @@
 
 <!-- Links -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i|PT+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <link rel='stylesheet' href="css/styles.css">
 
 
 
 <body>
 
-<header>
-    <h1>Українські youtube-чарти</h1>
-</header>
+    <div id="logo-soc">
+        <div class="logo">
+            <a href="http://texty.org.ua/" target="_blank"><img class='top-logo' style="width:100%" src="img/logo.png"/></a>
+            <a href="http://texty.org.ua/" target="_blank"><img class='partner-logo' style="width:100%" src=""/></a>
+        </div>
 
-<article>
-
-<div class="text">
-
-
-    <h5 id="credits">Над проектом працювала Євгенія Дроздова</h5>
-
-    <p>Ми дослідили, хто з наших музикантів зміг прорватись у вітчизняні youtube чарти скрізь товсту стіну росмузону, та де по світу слухали українську музику.</p>
-
-    <p>Якщо ви пограєтесь з глобусом, то побачите, що рок-гурт The Hardkiss популярний в Індії та Індонезії, так само як Kavabanga Depo Kolibri, Monatik та Анна Седокова. Мексиканцям заходить наша Настя Каменських (NK). Майже 25% всіх фанатів Вінника живуть у Києві, а найпопулярнішим гуртом, що співає українською, є КАZКА. </p>
-
-    <p>За 12 місяців КАZКА отримала 342 млн переглядів - це один з найвищих показників серед українських виконавців. На випадок, якщо вам буває сумно від засилля російської попси та репу в українських чартах, зазначимо, що за останні 12 місяців 96.4 млн переглядів КАЗКА мала з Росії і 82.2 з Україні (станом на 16 грудня). </p>
-    <!--<p>Звісно, youtube чарти -  не те місце, де варто шукати хорошої музики, тим не менш ми вирішили подивитись, що там відбувається і виявили дещо цікаве.</p>-->
-
-        <!--<p> Мало того, россійський реп-дует HammAli & Navai  записали українською аж пів пісні. На цілу хлопці не наважились, тому поки що виглядає скоріше як натяк, що українська і російська мови можуть чудово уживатись разом. Але ми щиро бажаємо хлопцям повноцінного україномовного альбому, бо росіяни нам здорово винні за російські пісні Лорак, Лободи, Барських, Дорна та інших. </p>-->
+        <div id="soc">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/d/2019/music-charts/" target="_blank" class="share-btn"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/d/2019/music-charts/" target="_blank" class="share-btn"><i class="fab fa-twitter-square"></i></a>
+        </div>
+    </div>
 
 
-   <p>На графіках ліворуч частота і позиції виконавця в щотижневих українських youtube чартах "Найкращі виконавці". Виконавці відсотртовані за кількістю просмотрів в українському сегменті youtube за останні 12 місяців. На глобусі - кількість переглядів по окремих містах світу. Майже по кожному виконавцю youtube надає інформацію щодо ТОП-100 міст за кількістю перегдядів. </p>
-    <p style="color: #00ffff">Клікате на назви гуртів — дивіться на глобус. Його можна крутити.</p>
-</div>
+    <header>
+        <h1>Українські youtube-чарти</h1>
+    </header>
 
+    <article>
+        <div class="text">
+            <h5 id="credits">Над проектом працювала Євгенія Дроздова</h5>
 
+            <p>Ми дослідили, хто з наших музикантів зумів прорватись у вітчизняні youtube-чарти скрізь товсту стіну росмузону, та де в світі слухали українську музику.</p>
 
-<p id="no-data">¯\_(ツ)_/¯</p>
-<div id="globeViz"></div>
-<div id="my_dataviz"></div>
-</article>
+            <p>Покрутивши глобус, ви побачите, що рок-гурт The Hardkiss популярний в Індії та Індонезії, так само як Kavabanga Depo Kolibri, Monatik та Анна Седокова. Мексиканцям заходить наша Настя Каменських (NK). Майже 25% всіх фанатів Винника живуть у Києві, а найпопулярнішим гуртом, що співає українською, є КАZКА.</p>
 
+            <p>За 12 місяців КАZКА отримала 342 млн переглядів — це один із найвищих показників серед українських виконавців. А якщо вам буває сумно від засилля російської попси та репу в українських чартах, зазначимо, що за останні 12 місяців 96.4 млн переглядів КАЗКА мала з Росії, і 82.2 — з України (станом на 16 грудня).</p>
 
+            <p>На графіках ліворуч — частота й позиції виконавця в щотижневих українських youtube-чартах "Найкращі виконавці". Виконавці відсортовані за кількістю переглядів в українському сегменті youtube за останні 12 місяців. На глобусі — кількість переглядів по окремих містах світу. Майже по кожному виконавцю youtube надає інформацію щодо ТОП-100 міст за кількістю переглядів.</p>
 
-<script type="text/javascript" src="libs/d3.v4.js"></script>
-<script src="libs/globe.gl.min.js"></script>
-<script src="libs/d3fc.min.js"></script>
-<script type="text/javascript" src="libs/jquery-3.3.1.min.js"></script>
-<script src="js/myglobe.js"></script>
-<script src="js/pult.js"></script>
+            <p style="color: #00ffff">Клікайте на назви гуртів — дивіться на глобус. Його можна крутити.</p>
+        </div>
+
+        <p id="no-data">¯\_(ツ)_/¯</p>
+        <div id="globeViz"></div>
+        <div id="my_dataviz"></div>
+    </article>
 
 
 
+    <script type="text/javascript" src="libs/d3.v4.js"></script>
+    <script src="libs/globe.gl.min.js"></script>
+    <script src="libs/d3fc.min.js"></script>
+    <script type="text/javascript" src="libs/jquery-3.3.1.min.js"></script>
+    <script src="js/myglobe.js"></script>
+    <script src="js/pult.js"></script>
 
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-18136548-1']);
-    _gaq.push(['_trackPageview']);
-    (function () {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
-</script>
+       <!-- Donate button -->
+    <div id="button">
+        <h3>TEXTY.ORG.UA незалежне видання без навʼязливої реклами і замовних матеріалів. Щоб працювати і далі нам потрібна ваша підтримка.</h3>
+
+        <div id="button-container">
+            <button onclick="location.href='https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJwdWJsaWNfa2V5IjoiaTc2NjUwNTYyODI3IiwiYW1vdW50IjoiNTAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoi0J%2FQvtC20LXRgNGC0LLQsCIsInR5cGUiOiJkb25hdGUiLCJsYW5ndWFnZSI6InVrIn0%3D&signature=YFkd4Z74QCJXRxMTPoWm0JVlkX4%3D'" id="support-us">ПОЖЕРТВУВАТИ</button>
+        </div>
+    </div>
+
+    <section id="created_texty">
+        <div>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/d/2019/music-charts/" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/d/2019/music-charts/" class="share-btn"><i class="fab fa-twitter"></i></a>
+            <h3>Створено Текстами</h3>
+        </div>
+        <div>
+            <a href="http://texty.org.ua/" target="_blank"><img src="img/logo.png" alt="texty.org.ua"></a>
+        </div>
+    </section>
 
 
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-18136548-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 </body>

@@ -1,0 +1,32 @@
+$grey-color: grey;
+$hover-color: pink;
+$export: #49006a;
+$import: #00441b;
+
+
+/* Smartphones (portrait and landscape) ----------- */
+$mobile: ' screen and (min-device-width : 320px) and (max-device-width : 480px)';
+
+/* Smartphones (landscape) ----------- */
+$mobile-l: ' screen and (min-width : 321px)';
+
+/* Smartphones (portrait) ----------- */
+$mobile-p: ' screen and (max-width : 320px)';
+
+/* iPads (portrait and landscape) ----------- */
+$iPads: ' screen and (min-device-width : 768px) and (max-device-width : 1024px)';
+
+/* iPads (landscape) ----------- */
+$iPads-l: ' screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)';
+
+/* iPads (portrait) ----------- */
+$iPads-p: ' screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)';
+
+/* Desktops and laptops ----------- */
+$medium: ' screen and (min-width : 1224px)';
+
+/* Large screens ----------- */
+$large: ' screen and (min-width : 1824px)';
+
+
+

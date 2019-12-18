@@ -1,0 +1,48 @@
+@import "variables";
+
+#button {
+  width: 50%; /* 100% of parent container*/
+  margin:100px auto;
+  line-height: 1.6;
+  @media(max-width:500px){
+    width: 90%;
+  }
+
+  h3 {
+    font-size: 20px !important;
+    font-family: inherit;
+    font-weight: 800;
+    text-align: center;
+    @media(max-width: 1024px) and (orientation: portrait) {
+      font-size: 20px !important;
+    }
+    @media(min-width:1800px){
+      font-size:30px;
+    }
+  }
+}
+
+
+#button-container {
+  width:100%;
+  display:flex;
+}
+
+#support-us {
+  width:auto;
+  //width:max-content;
+  background-color: #ffc423!important;
+  padding:10px;
+  outline:none;
+  border:none;
+  font-weight:800;
+  font-size:18px;
+  margin:auto;
+  cursor:pointer;
+  @media(max-width: 1024px) and (orientation: portrait) {
+    font-size: 20px !important;
+  }
+  @media(min-width:1800px){
+    font-size:20px;
+  }
+}
